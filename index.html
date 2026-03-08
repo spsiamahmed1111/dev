@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>রুটিনAI - স্মার্ট ডেইলি রুটিন</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1 class="logo">রুটিনAI</h1>
+        <div class="clock-box">
+            <div id="real-time-clock">00:00:00 PM</div>
+            <div id="current-date-text">...</div>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section id="home-section" class="content-section active">
+            <h2 class="section-title">আজকের টাস্কসমূহ (<span id="cycle-display">...</span>)</h2>
+            <div id="task-list" class="task-container">
+                </div>
+            
+            <button class="btn-reset" onclick="resetAllTasks()">
+                <i class="fa-solid fa-arrows-rotate"></i> নতুন করে শুরু করুন
+            </button>
+        </section>
+
+        <section id="salat-section" class="content-section">
+            <h2 class="section-title">নামাজের সময়</h2>
+            <div class="next-prayer-card">
+                <span id="next-prayer-name">অপেক্ষা করুন...</span>
+                <strong id="prayer-countdown">00:00:00</strong>
+            </div>
+            <div class="table-responsive">
+                <table id="salat-table">
+                    <thead>
+                        <tr><th>তারিখ</th><th>ফজর</th><th>যোহর</th><th>আসর</th><th>মাগরিব</th><th>এশা</th></tr>
+                    </thead>
+                    <tbody id="salat-body"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="study-section" class="content-section">
+            <h2 class="section-title">পড়াশোনার রুটিন</h2>
+            <div id="fixed-study-list" class="task-container"></div>
+        </section>
+
+        <section id="word-section" class="content-section">
+            <input type="text" id="word-search" class="search-bar" placeholder="শব্দ খুঁজুন...">
+            <div id="word-list" class="word-grid"></div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="showSection('home', this)">
+            <i class="fa-solid fa-house"></i><span>হোম</span>
+        </div>
+        <div class="nav-item" onclick="showSection('salat', this)">
+            <i class="fa-solid fa-mosque"></i><span>সালাত</span>
+        </div>
+        <div class="nav-item" onclick="showSection('study', this)">
+            <i class="fa-solid fa-book-open"></i><span>স্টাডি</span>
+        </div>
+        <div class="nav-item" onclick="showSection('word', this)">
+            <i class="fa-solid fa-language"></i><span>ওয়ার্ড</span>
+        </div>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
